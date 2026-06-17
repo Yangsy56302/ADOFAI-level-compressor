@@ -6,6 +6,8 @@ from typing import Any, Literal, TypedDict, NotRequired
 
 # import adofaipy
 
+version: str = "0.1.0"
+
 
 # deal with type notations
 type Settings = dict[str, Any]
@@ -58,8 +60,6 @@ def convert_level_to_valid_json_format(content: str, /) -> Level:
             splited[i] = re.sub("\n", "\\\\r", splited[i]) # convert \n (was \r) to \\r
             splited[i] = re.sub("\t", "", splited[i]) # remove \t
     
-    with open("m", "w", encoding="utf-8-sig") as f:
-        f.write("".join(splited))
     # and all of those steps above is to make this an VALID JSON DATA... WELL DONE 7TH BEAT GAMES.
     return json.loads("".join(splited))
 
@@ -68,7 +68,10 @@ parser = argparse.ArgumentParser(
     description = "compress *.adofai file",
     # description = "",
     epilog = "TL;DR: just drag the *.adofai file onto this exe",
-    exit_on_error = False # WHY DOESN'T IT WORK???
+    exit_on_error = False
+)
+parser.add_argument(
+    "-v", "--version", action="version", version=f"%(prog)s {version}"
 )
 path_data_group = parser.add_argument_group(
     "pathData", 
@@ -304,6 +307,11 @@ def show_exception(e: Exception, msg: str | None = None) -> None:
 
 
 def main() -> int:
+    if len(sys.argv) <= 1:
+        parser.print_help()
+        input("Press Enter to continue...\n")
+        return 0
+    
     global args_dict
     try:
         args_dict = vars(parser.parse_args()) # type: ignore
@@ -312,11 +320,14 @@ def main() -> int:
         parser.print_help()
         input("Press Enter to continue...\n")
         return 1
-    except SystemExit: # some error still raises SystemExit for some reason :/
+    # some error still raises SystemExit for some reason :/
+    """
+    except SystemExit:
         print()
         parser.print_help()
         input("Press Enter to continue...\n")
         return 1
+    """
     
     if not args_dict.get("output"):
         args_dict["output"] = ".compressed".join(os.path.splitext(args_dict["input"]))
