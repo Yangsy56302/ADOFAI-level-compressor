@@ -1,4 +1,4 @@
-# (ADOFAI)[https://7thbe.at/#adofai] Level Compressor
+# [ADOFAI](https://7thbe.at/#adofai) Level Compressor
 
 ~~isn't the title already enough to explain what is this for for you?~~
 
