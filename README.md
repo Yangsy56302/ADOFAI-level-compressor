@@ -4,12 +4,13 @@
 
 Notes that this tool only focuses on compressing `*.adofai` file using strategy that only works for ADOFAI level format. 
 
-ADOFAI Updates may cause this to update.  
-More specifically, this project assumes: 
-* default values for all events, decorations, and level settings, didn't change; 
-* ADOFAI will fill the missing keys using default values when loading a level, if possible. 
+ADOFAI Updates may cause this to update, or even give up some compressing method.  
+More specifically, this project is assuming that: 
+* ADOFAI will not change default values for all events, decorations, and level settings frequently; 
+* ADOFAI will fill the missing keys using default values when loading a level, if possible; 
+* ADOFAI will not give up to support loading `pathData`-formatted levels. 
 
-The current version of this project supports to compress levels from ADOFAI `v3.1.2`. 
+The current version of this project supports to compress levels from ADOFAI versions until `v3.1.2`. 
 
 ## [LICENSE](./LICENSE.md)
 
