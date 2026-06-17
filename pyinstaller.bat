@@ -1,0 +1,1 @@
+pyinstaller --specpath . --distpath . --workpath ../temp/make --onefile --console --icon ./avatarv5.ico --name adofai_level_compressor ./adofai_level_compressor.py
