@@ -1,5 +1,7 @@
 adofai_level_compressor.exe
 adofai_level_compressor.spec
 __pycache__/
+build/
+dist/
 *.adofai
 !default.adofai
