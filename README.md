@@ -9,7 +9,7 @@ More specifically, this project assumes:
 * default values for all events, decorations, and level settings, didn't change; 
 * ADOFAI will fill the missing keys using default values when loading a level, if possible. 
 
-The current version of this project supports to compress levels from ADOFAI Version `3.1.1`.  
+The current version of this project supports to compress levels from ADOFAI `v3.1.2`. 
 
 ## [LICENSE](./LICENSE.md)
 
